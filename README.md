@@ -1,1 +1,1 @@
-# comodojo.project
+# comodojo

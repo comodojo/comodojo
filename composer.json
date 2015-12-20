@@ -6,7 +6,7 @@
     "keywords": [],
     "homepage": "https://comodojo.org",
      "support": {
-        "issues": "https://github.com/comodojo/comodojo.project/issues"
+        "issues": "https://github.com/comodojo/comodojo/issues"
     },
     "authors": [
         {
@@ -45,7 +45,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url":  "git@github.com:comodojo/comodojo.git"
+            "url":  "git@github.com:comodojo/comodojo.framework.git"
         }
     ]
 }
