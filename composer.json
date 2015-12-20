@@ -1,0 +1,51 @@
+{
+    "name": "comodojo/comodojo.project",
+    "description": "Composer project template for comodojo/comodojo",
+    "license": "GPL-3.0+",
+    "type": "project",
+    "keywords": [],
+    "homepage": "https://comodojo.org",
+     "support": {
+        "issues": "https://github.com/comodojo/comodojo.project/issues"
+    },
+    "authors": [
+        {
+            "name": "Marco Giovinazzi",
+            "email": "marco.giovinazzi@comodojo.org",
+            "homepage": "http://jme.altervista.org"
+        },
+        {
+            "name": "Marco Castiello",
+            "email": "marco.castiello@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Comodojo\\Extender\\Task\\": "tasks",
+            "Comodojo\\Extender\\Plugin\\": "extender-plugins",
+            "Comodojo\\Extender\\Command\\": "commands",
+            "Comodojo\\Dispatcher\\Service\\": "services",
+            "Comodojo\\Dispatcher\\Plugin\\": "dispatcher-plugins",
+            "Comodojo\\App\\": "apps"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.6.0",
+        "comodojo/comodojo": "dev-master"
+    },
+    "extra": {
+        "asset-installer-paths": {
+            "npm-asset-library": "public/assets",
+            "bower-asset-library": "public/assets"
+        },
+        "asset-optimize-with-installed-packages": false,
+        "comodojo-apps-path": "public/apps"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url":  "git@github.com:comodojo/comodojo.git"
+        }
+    ]
+}
