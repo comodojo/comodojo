@@ -32,7 +32,11 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.6.0",
-        "comodojo/comodojo": "dev-master"
+        "comodojo/comodojo-installer": "dev-master",
+        "comodojo/comodojo-framework": "dev-master",
+        "comodojo/dispatcher.framework": "4.0.x-dev",
+        "comodojo/extender.framework": "^1.0",
+        "fxp/composer-asset-plugin": "~1.1"
     },
     "extra": {
         "asset-installer-paths": {
@@ -40,12 +44,23 @@
             "bower-asset-library": "public/assets"
         },
         "asset-optimize-with-installed-packages": false,
-        "comodojo-apps-path": "public/apps"
+        "comodojo-installer-paths": {
+            "app-assets": "public/apps",
+            "framework-js": "public/js",
+            "framework-templates": "public/templates",
+            "local-cache": "cache",
+            "static-config": "config",
+            "local-logs": "logs"
+        }
     },
     "repositories": [
         {
             "type": "vcs",
-            "url":  "git@github.com:comodojo/comodojo.framework.git"
+            "url":  "git@github.com:comodojo/comodojo-framework.git"
+        },
+        {
+            "type": "vcs",
+            "url":  "git@github.com:comodojo/comodojo-installer.git"
         }
     ]
 }
