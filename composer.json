@@ -34,7 +34,7 @@
         "php": ">=5.6.0",
         "comodojo/comodojo-installer": "dev-master",
         "comodojo/comodojo-framework": "dev-master",
-        "comodojo/dispatcher.framework": "4.0.x-dev",
+        "comodojo/dispatcher.framework": "3.0.*",
         "comodojo/extender.framework": "^1.0",
         "fxp/composer-asset-plugin": "~1.1"
     },
@@ -50,7 +50,8 @@
             "framework-templates": "public/templates",
             "local-cache": "cache",
             "static-config": "config",
-            "local-logs": "logs"
+            "local-logs": "logs",
+            "local-database": "database"
         }
     },
     "repositories": [
