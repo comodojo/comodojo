@@ -34,9 +34,15 @@
         "php": ">=5.6.0",
         "comodojo/comodojo-installer": "dev-master",
         "comodojo/comodojo-framework": "dev-master",
+        "comodojo/comodojo-gui": "dev-master",
         "comodojo/dispatcher.framework": "3.0.*",
         "comodojo/extender.framework": "^1.0",
         "fxp/composer-asset-plugin": "~1.1"
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "Comodojo\\Installer\\Scripts\\InteractiveConfiguration::postCreateProjectCmd"
+        ]
     },
     "extra": {
         "asset-installer-paths": {
@@ -62,6 +68,10 @@
         {
             "type": "vcs",
             "url":  "git@github.com:comodojo/comodojo-installer.git"
+        },
+        {
+            "type": "vcs",
+            "url":  "git@github.com:comodojo/comodojo-gui.git"
         }
     ]
 }
