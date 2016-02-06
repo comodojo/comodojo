@@ -39,11 +39,6 @@
         "comodojo/extender.framework": "^1.0",
         "fxp/composer-asset-plugin": "~1.1"
     },
-    "scripts": {
-        "post-create-project-cmd": [
-            "Comodojo\\Installer\\Scripts\\InteractiveConfiguration::postCreateProjectCmd"
-        ]
-    },
     "extra": {
         "asset-installer-paths": {
             "npm-asset-library": "public/assets",
