@@ -1,16 +1,15 @@
 <?php
 
-use Comodojo\Dispatcher\Dispatcher;
+use \Comodojo\Comodojo;
+use \Symfony\Component\Yaml\Yaml;
 
 /**
- * Comodojo dispatcher - REST services microframework
- * 
  * @package     Comodojo dispatcher
  * @author      Marco Giovinazzi <marco.giovinazzi@comodojo.org>
  * @license     GPL-3.0+
  *
  * LICENSE:
- * 
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
  * published by the Free Software Foundation, either version 3 of the
@@ -27,16 +26,6 @@ use Comodojo\Dispatcher\Dispatcher;
 
 /*
  |--------------------------------
- | Load dispatcher configuration
- |--------------------------------
- |
- | Load defined constants via dispatcher-config
- |
- */
-require "configs/dispatcher-config.php";
-
-/*
- |--------------------------------
  | Autoloader
  |--------------------------------
  |
@@ -45,7 +34,9 @@ require "configs/dispatcher-config.php";
  | will be handled directly with composer.
  |
  */
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
+
+$config = Yaml::parse(file_get_contents('../config/comodojo-config.yml'));
 
 /*
  |--------------------------------
@@ -55,28 +46,7 @@ require 'vendor/autoload.php';
  | Create the dispatcher instance
  |
  */
-$dispatcher = new Dispatcher();
-
-/*
- |--------------------------------
- | Load routing table
- |--------------------------------
- |
- | Load site-specific routing options from
- | routing configuration.
- |
- */
-require "configs/dispatcher-routing-config.php";
-
-/*
- |--------------------------------
- | Load plugins
- |--------------------------------
- |
- | Load installed plugins
- |
- */
-require "configs/dispatcher-plugins-config.php";
+$comodojo = new Comodojo($config);
 
 /*
  |--------------------------------
@@ -86,4 +56,4 @@ require "configs/dispatcher-plugins-config.php";
  | Handle request, dispatch result :)
  |
  */
-$dispatcher->dispatch();
+exit( $comodojo->boot() );
