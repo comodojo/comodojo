@@ -1,16 +1,11 @@
 #!/usr/bin/env php
 <?php
 
-use \Comodojo\Extender\Econtrol;
+use \Comodojo\Shell;
+use \Symfony\Component\Yaml\Yaml;
 
 /**
- * Comodojo extender
- *
- * Database driven, multiprocess, pseudo-cron tasks executor.
- *
- * This is the commandline control center
- *
- * @package     Comodojo extender
+ * @package     Comodojo dispatcher
  * @author      Marco Giovinazzi <marco.giovinazzi@comodojo.org>
  * @license     GPL-3.0+
  *
@@ -32,16 +27,6 @@ use \Comodojo\Extender\Econtrol;
 
 /*
  |--------------------------------
- | Load extender configuration
- |--------------------------------
- |
- | Load defined constants via extender-config
- |
- */
-require "configs/comodojo-config.php";
-
-/*
- |--------------------------------
  | Autoloader
  |--------------------------------
  |
@@ -50,25 +35,29 @@ require "configs/comodojo-config.php";
  | will be handled directly with composer.
  |
  */
-require EXTENDER_REAL_PATH.'vendor/autoload.php';
+require '../vendor/autoload.php';
+
+$config = Yaml::parse(file_get_contents('../config/comodojo-config.yml'));
+
+$shell = new Shell($config);
 
 /*
  |--------------------------------
- | Init command line controller
+ | Init a dispatcher instance
  |--------------------------------
  |
- | Create an instance of command line
- | controller
+ | Create the dispatcher instance
  |
  */
-$extender = new Econtrol();
+$econtrol = $shell->createEcontrol();
+
 
 /*
  |--------------------------------
- | Process command
+ | Extend!
  |--------------------------------
  |
- | Run commands to manage extender
+ | Invoke the 'extend' method
  |
  */
-$extender->process();
+$econtrol->process();
