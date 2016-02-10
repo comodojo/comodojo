@@ -35,9 +35,11 @@ use \Symfony\Component\Yaml\Yaml;
  | will be handled directly with composer.
  |
  */
-require '../vendor/autoload.php';
+$absolute_path = realpath(dirname(__FILE__)."/../");
 
-$config = Yaml::parse(file_get_contents('../config/comodojo-config.yml'));
+require $absolute_path.'/vendor/autoload.php';
+
+$config = Yaml::parse(file_get_contents($absolute_path.'/config/comodojo-config.yml'));
 
 $shell = new Shell($config);
 
